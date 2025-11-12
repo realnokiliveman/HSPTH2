@@ -1,0 +1,348 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Tx2ud4J5TsWm"
+      },
+      "source": [
+        "# Python 2 HSUTCC: List and functions\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wCXR7Tq7qJgL"
+      },
+      "source": [
+        "# Tasks"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "m85yDPhgqJgL"
+      },
+      "source": [
+        "1. Write a Python function to find the max of any numbers of arguments (don't use the build in function `max()`)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "QxW6k72bqJgL"
+      },
+      "outputs": [],
+      "source": [
+        "def max_any_arg(*args):\n",
+        "   \n",
+        "    if not args:\n",
+        "        return None\n",
+        "   \n",
+        "    maximum = args[0]\n",
+        "   \n",
+        "    for i in args[1:]:\n",
+        "        if i > maximum:\n",
+        "            maximum = i\n",
+        "   \n",
+        "    return maximum"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gvCoFJrXqJgL"
+      },
+      "source": [
+        "2. Write a function that computes the volume of a sphere given its radius."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "B8FiNjdgqJgL"
+      },
+      "outputs": [],
+      "source": [
+        "def sphere_volume(r):\n",
+        "    \n",
+        "    pi = 3.141592653589793\n",
+        "    \n",
+        "    return (4/3) * pi * (r ** 3)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KrL4ACysqJgL"
+      },
+      "source": [
+        "3. Write a function that checks whether a number is in a given range (Inclusive of high and low)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "W3JmUJY2qJgL"
+      },
+      "outputs": [],
+      "source": [
+        "def is_in_range(target, low, high):\n",
+        "    \n",
+        "    return low <= target <= high"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "fCKlwSKIqJgM"
+      },
+      "source": [
+        "4. Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "mK7QNkEGqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def upper_lower_letters(s):\n",
+        "    \n",
+        "    if (s is None) or (not isinstance(s, str)):\n",
+        "        return 0, 0\n",
+        "   \n",
+        "    upper = 0\n",
+        "    lower = 0\n",
+        "   \n",
+        "    for char in s:\n",
+        "        \n",
+        "        if char.isupper():\n",
+        "            upper += 1\n",
+        "        elif char.islower():\n",
+        "            lower += 1\n",
+        "   \n",
+        "    return upper, lower"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KImDTSq3qJgM"
+      },
+      "source": [
+        "5. Write a Python function that takes a list and returns a new list with unique elements of the first list. Please use list comprehension as well"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "lDf-ZZ3_qJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def unique_elements(l):\n",
+        "    \n",
+        "    unique_list = []\n",
+        "    \n",
+        "    for item in l:\n",
+        "        \n",
+        "        if item not in unique_list:\n",
+        "            unique_list.append(item)\n",
+        "    \n",
+        "    return unique_list"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CyfEbjvzqJgM"
+      },
+      "source": [
+        "6. Write a Python function to check whether a string is pangram or not.\n",
+        "\n",
+        "Note : Pangrams are words or sentences containing every letter of the alphabet at least once.\n",
+        "For example : \"The quick brown fox jumps over the lazy dog\"\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "S-fEI3nKqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def pangram(s):\n",
+        "    \n",
+        "    alphabet = set('abcdefghijklmnopqrstuvwxyz')\n",
+        "    s_lower = s.lower()\n",
+        "    \n",
+        "    for char in alphabet:\n",
+        "        if char not in s_lower:\n",
+        "            return False\n",
+        "    \n",
+        "    return True"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "KH5tNVpdqJgM"
+      },
+      "source": [
+        "7. Write a Python function to calculate the fibonacci number of index i (starts with 1). The function accepts the number as an argument and return a single number.\n",
+        "The fibonacci sequence starts with 1,1,2,3,5,8,13,21,.... Therefore, fibonacci of index 6 is number 8."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "1TCzlandqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def fib(x):\n",
+        "    \n",
+        "    if x <= 0:\n",
+        "        return 0\n",
+        "    \n",
+        "    elif x == 1:\n",
+        "        return 1\n",
+        "    \n",
+        "    else:\n",
+        "        a, b = 0, 1\n",
+        "        for i in range(2, x + 1):\n",
+        "            a, b = b, a + b\n",
+        "        return b"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TbliM0mzqJgM"
+      },
+      "source": [
+        "8. Create a function which finds the length of each word in the phrase (broken by spaces) and return the values in a list. The function will have an input of a string, and output a list of integers."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "y2IyioszqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def words_length_count(x):\n",
+        "    \n",
+        "    words = x.split()\n",
+        "    \n",
+        "    length = [len(word) for word in words]\n",
+        "    \n",
+        "    return length"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wJmrM2MZqJgM"
+      },
+      "source": [
+        "9. Write a function that accepts a list of tuples containing the name of the student and their score, sort them by the score from high to low."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "VjABiZGUqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def sort_by_score(l):\n",
+        "    \n",
+        "    n = len(l)\n",
+        "    \n",
+        "    for i in range(n):\n",
+        "        max_index = i\n",
+        "        \n",
+        "        for j in range(i + 1, n):\n",
+        "            if l[j][1] > l[max_index][1]:\n",
+        "                max_index = j\n",
+        "        \n",
+        "        l[i], l[max_index] = l[max_index], l[i]\n",
+        "    \n",
+        "    return l"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "xCdteuFKqJgM"
+      },
+      "source": [
+        "10. Write a python function that accepts a list of tuples of length 2, where each tuple contains student name and their scores respectively. The function should return the name of the student whose got maximum score. Please use `map()`, and `max()` function is strictly prohibited."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "KZLvXc1oqJgM"
+      },
+      "outputs": [],
+      "source": [
+        "def get_top_students(students):\n",
+        "    scores = list(map(lambda s: s[1], students))\n",
+        "\n",
+        "    max_score = scores[0]\n",
+        "    for score in scores[1:]:\n",
+        "        if score > max_score:\n",
+        "            max_score = score\n",
+        "\n",
+        "    return [s[0] for s in students if s[1] == max_score]"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "JY_98NybqJgM"
+      },
+      "source": [
+        "HAPPY CODING :)"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.13.9"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
